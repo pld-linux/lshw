@@ -8,6 +8,7 @@ Group:		Applications/System
 Source0:	http://dl.sourceforge.net/ezix/%{name}-%{version}.tar.gz
 # Source0-md5:	aadd5db3ec104fa6bce24c7bf74b56ec
 URL:		http://ezix.sourceforge.net/software/lshw.html
+BuildRequires:	libstdc++-devel
 Requires:	pciutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
