@@ -2,7 +2,7 @@ Summary:	Hardware Lister
 Summary(pl):	Narzêdzie wypisuj±ce sprzêt
 Name:		lshw
 Version:	B.02.02
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://osdn.dl.sourceforge.net/ezix/%{name}-%{version}.tar.gz
