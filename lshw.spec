@@ -1,12 +1,12 @@
 Summary:	Hardware Lister
 Summary(pl):	Narzêdzie wypisuj±ce sprzêt
 Name:		lshw
-Version:	A.01.08
+Version:	A.01.09
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/ezix/%{name}-%{version}.tar.gz
-# Source0-md5:	8b637c794ecc24ffae67287b067c99e9
+# Source0-md5:	2ac046d740048cd81027d63ec31b36a8
 URL:		http://ezix.sourceforge.net/software/lshw.html
 BuildRequires:	libstdc++-devel
 Requires:	pciutils
@@ -46,7 +46,7 @@ PCMCIA (testowane tylko na x86) oraz SCSI.
 %build
 %{__make} \
 	CXX="%{__cxx}" \
-	CXXFLAGS="%{rpmcflags}"
+	CXXFLAGS="%{rpmcflags} -I./core"
 
 %install
 rm -rf $RPM_BUILD_ROOT
