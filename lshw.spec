@@ -1,4 +1,5 @@
 Summary:	Hardware Lister
+Summary(pl):	Narzêdzie wypisuj±ce sprzêt
 Name:		lshw
 Version:	A.01.00
 Release:	1
@@ -22,6 +23,20 @@ Information can be output in plain text, XML or HTML.
 It currently supports DMI (x86 only), OpenFirmware device tree
 (PowerPC only), PCI/AGP, CPUID (x86), IDE/ATA/ATAPI, PCMCIA (only
 tested on x86) and SCSI.
+
+%description -l pl
+lshw (Hardware Lister) to ma³e narzêdzie maj±ce udostêpniæ szczegó³owe
+informacje dotycz±ce sprzêtowej konfiguracji maszyny. Mo¿e okre¶liæ
+dok³adn± konfiguracjê pamiêci, wersjê firmware, konfiguracjê p³yty
+g³ównej, wersjê i szybko¶æ CPU, konfiguracjê cache, szybko¶æ szyny
+itp. na systemach x86 obs³uguj±cych DMI oraz niektórych maszynach
+PowerPC (wiadomo, ¿e dzia³a na PowerMacu G4).
+
+Informacje mog± byæ podawane jako czysty tekstu, XML lub HTML.
+
+Aktualnie program obs³uguje DMI (tylko x86), drzewo urz±dzeñ
+OpenFirmware (tylko PowerPC), PCI/AGP, CPUID (x86), IDE/ATA/ATAPI,
+PCMCIA (testowane tylko na x86) oraz SCSI.
 
 %prep
 %setup -q
