@@ -2,13 +2,15 @@ Summary:	Hardware Lister
 Summary(pl):	Narzêdzie wypisuj±ce sprzêt
 Name:		lshw
 Version:	B.02.02
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://osdn.dl.sourceforge.net/ezix/%{name}-%{version}.tar.gz
 # Source0-md5:	e65eeac535a60652a993c0bf25dc7d6a
 URL:		http://ezix.sourceforge.net/software/lshw.html
 BuildRequires:	libstdc++-devel
+BuildRequires:	gtk+2-devel
+BuildRequires:	pkgconfig
 Requires:	pciutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,6 +42,18 @@ Aktualnie program obs³uguje DMI (tylko x86), drzewo urz±dzeñ
 OpenFirmware (tylko PowerPC), PCI/AGP, CPUID (x86), IDE/ATA/ATAPI,
 PCMCIA (testowane tylko na x86) oraz SCSI.
 
+%package gtk
+Summary:	GTK+ version of lshw
+Summary(pl):	lshw w wersji GTK+
+Group:		Applications/System
+Requires:	lshw
+
+%description gtk
+GTK+ version of lshw
+
+%description gtk -l pl
+lshw w wersji GTK+
+
 %prep
 %setup -q
 
@@ -48,6 +62,10 @@ PCMCIA (testowane tylko na x86) oraz SCSI.
 	CXX="%{__cxx}" \
 	CXXFLAGS="%{rpmcflags} -I./core"
 
+%{__make} gui \
+	CXX="%{__cxx}" \
+	CXXFLAGS="%{rpmcflags} -I../core -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0"
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man1}
@@ -55,10 +73,19 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man1}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__make} install-gui \
+	DESTDIR=$RPM_BUILD_ROOT
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_sbindir}/*
+%doc TODO docs/Changelog docs/lshw.xsd
+%attr(755,root,root) %{_sbindir}/%{name}
+%{_datadir}/%{name}
 %{_mandir}/man1/*
+
+%files gtk
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_sbindir}/gtk-%{name}
