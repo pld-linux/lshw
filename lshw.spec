@@ -49,10 +49,10 @@ Group:		Applications/System
 Requires:	lshw
 
 %description gtk
-GTK+ version of lshw
+GTK+ version of lshw.
 
 %description gtk -l pl
-lshw w wersji GTK+
+lshw w wersji GTK+.
 
 %prep
 %setup -q
