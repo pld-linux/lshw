@@ -45,6 +45,7 @@ PCMCIA (testowane tylko na x86) oraz SCSI.
 
 %build
 %{__make} \
+	CXX="%{__cxx}" \
 	CXXFLAGS="%{rpmcflags}"
 
 %install
