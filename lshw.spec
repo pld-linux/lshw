@@ -5,7 +5,7 @@ Version:	B.02.03
 Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://osdn.dl.sourceforge.net/ezix/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/ezix/%{name}-%{version}.tar.gz
 # Source0-md5:	f0de8716c63cd4692a1dec604824d90e
 URL:		http://ezix.sourceforge.net/software/lshw.html
 BuildRequires:	libstdc++-devel
