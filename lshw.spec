@@ -64,7 +64,7 @@ lshw w wersji GTK+
 
 %{__make} gui \
 	CXX="%{__cxx}" \
-	CXXFLAGS="%{rpmcflags} -I../core -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0"
+	CXXFLAGS="%{rpmcflags} -I../core `pkg-config --cflags gtk+-2.0`"
 
 %install
 rm -rf $RPM_BUILD_ROOT
