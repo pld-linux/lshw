@@ -1,12 +1,12 @@
 Summary:	Hardware Lister
 Summary(pl):	Narzêdzie wypisuj±ce sprzêt
 Name:		lshw
-Version:	B.02.02
-Release:	3
+Version:	B.02.03
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://osdn.dl.sourceforge.net/ezix/%{name}-%{version}.tar.gz
-# Source0-md5:	e65eeac535a60652a993c0bf25dc7d6a
+# Source0-md5:	f0de8716c63cd4692a1dec604824d90e
 URL:		http://ezix.sourceforge.net/software/lshw.html
 BuildRequires:	libstdc++-devel
 BuildRequires:	gtk+2-devel
@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc TODO docs/Changelog docs/lshw.xsd
+%doc docs/TODO docs/Changelog docs/lshw.xsd
 %attr(755,root,root) %{_sbindir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man1/*
