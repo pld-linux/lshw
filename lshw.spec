@@ -1,12 +1,12 @@
 Summary:	Hardware Lister
 Summary(pl):	Narzêdzie wypisuj±ce sprzêt
 Name:		lshw
-Version:	A.01.01
+Version:	A.01.02
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/ezix/%{name}-%{version}.tar.gz
-# Source0-md5:	71046f393c0e49cfb7fbe67a179bd6b7
+# Source0-md5:	608f62e9fa4e9681f162ea47c691073e
 URL:		http://ezix.sourceforge.net/software/lshw.html
 Requires:	pciutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
