@@ -1,7 +1,7 @@
 Summary:	Hardware Lister
 Summary(pl):	Narzêdzie wypisuj±ce sprzêt
 Name:		lshw
-Version:	A.01.00
+Version:	A.01.01
 Release:	1
 License:	GPL v2
 Group:		Applications/System
@@ -32,7 +32,7 @@ g³ównej, wersjê i szybko¶æ CPU, konfiguracjê cache, szybko¶æ szyny
 itp. na systemach x86 obs³uguj±cych DMI oraz niektórych maszynach
 PowerPC (wiadomo, ¿e dzia³a na PowerMacu G4).
 
-Informacje mog± byæ podawane jako czysty tekstu, XML lub HTML.
+Informacje mog± byæ podawane jako czysty tekst, XML lub HTML.
 
 Aktualnie program obs³uguje DMI (tylko x86), drzewo urz±dzeñ
 OpenFirmware (tylko PowerPC), PCI/AGP, CPUID (x86), IDE/ATA/ATAPI,
