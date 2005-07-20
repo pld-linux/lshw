@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc docs/TODO docs/Changelog docs/lshw.xsd
+%doc docs/TODO docs/Changelog docs/lshw.xsd README
 %attr(755,root,root) %{_sbindir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man1/*
