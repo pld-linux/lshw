@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	gui	# build without GTK gui
+#
 Summary:	Hardware Lister
 Summary(pl):	Narzêdzie wypisuj±ce sprzêt
 Name:		lshw
@@ -9,7 +13,7 @@ Source0:	http://dl.sourceforge.net/ezix/%{name}-%{version}.tar.gz
 # Source0-md5:	370e10e3dad089be3f24f1cdf3874a52
 URL:		http://ezix.sourceforge.net/software/lshw.html
 BuildRequires:	libstdc++-devel
-BuildRequires:	gtk+2-devel
+%{?with_gui:BuildRequires:	gtk+2-devel}
 BuildRequires:	pkgconfig
 Requires:	pciutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -62,9 +66,11 @@ lshw w wersji GTK+.
 	CXX="%{__cxx}" \
 	CXXFLAGS="%{rpmcflags} -I./core"
 
+%if %{with gui}
 %{__make} gui \
 	CXX="%{__cxx}" \
 	CXXFLAGS="%{rpmcflags} -I../core `pkg-config --cflags gtk+-2.0`"
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -73,8 +79,10 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man1}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%if %{with gui}
 %{__make} install-gui \
 	DESTDIR=$RPM_BUILD_ROOT
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,6 +94,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_mandir}/man1/*
 
+%if %{with gui}
 %files gtk
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_sbindir}/gtk-%{name}
+%endif
