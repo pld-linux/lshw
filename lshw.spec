@@ -11,9 +11,9 @@ License:	GPL v2
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/ezix/%{name}-%{version}.tar.gz
 # Source0-md5:	3e03d7a7ff97691ca1c5710bf02d256a
-URL:		http://ezix.sourceforge.net/software/lshw.html
-BuildRequires:	libstdc++-devel
+URL:		http://ezix.org/project/wiki/HardwareLiSter
 %{?with_gui:BuildRequires:	gtk+2-devel}
+BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 Requires:	pciutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
