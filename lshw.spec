@@ -3,7 +3,7 @@
 %bcond_without	gui	# build without GTK gui
 #
 Summary:	Hardware Lister
-Summary(pl):	Narzêdzie wypisuj±ce sprzêt
+Summary(pl.UTF-8):   NarzÄ™dzie wypisujÄ…ce sprzÄ™t
 Name:		lshw
 Version:	B.02.09
 Release:	1
@@ -32,30 +32,30 @@ It currently supports DMI (x86 only), OpenFirmware device tree
 (PowerPC only), PCI/AGP, CPUID (x86), IDE/ATA/ATAPI, PCMCIA (only
 tested on x86) and SCSI.
 
-%description -l pl
-lshw (Hardware Lister) to ma³e narzêdzie maj±ce udostêpniæ szczegó³owe
-informacje dotycz±ce sprzêtowej konfiguracji maszyny. Mo¿e okre¶liæ
-dok³adn± konfiguracjê pamiêci, wersjê firmware, konfiguracjê p³yty
-g³ównej, wersjê i szybko¶æ CPU, konfiguracjê cache, szybko¶æ szyny
-itp. na systemach x86 obs³uguj±cych DMI oraz niektórych maszynach
-PowerPC (wiadomo, ¿e dzia³a na PowerMacu G4).
+%description -l pl.UTF-8
+lshw (Hardware Lister) to maÅ‚e narzÄ™dzie majÄ…ce udostÄ™pniÄ‡ szczegÃ³Å‚owe
+informacje dotyczÄ…ce sprzÄ™towej konfiguracji maszyny. MoÅ¼e okreÅ›liÄ‡
+dokÅ‚adnÄ… konfiguracjÄ™ pamiÄ™ci, wersjÄ™ firmware, konfiguracjÄ™ pÅ‚yty
+gÅ‚Ã³wnej, wersjÄ™ i szybkoÅ›Ä‡ CPU, konfiguracjÄ™ cache, szybkoÅ›Ä‡ szyny
+itp. na systemach x86 obsÅ‚ugujÄ…cych DMI oraz niektÃ³rych maszynach
+PowerPC (wiadomo, Å¼e dziaÅ‚a na PowerMacu G4).
 
-Informacje mog± byæ podawane jako czysty tekst, XML lub HTML.
+Informacje mogÄ… byÄ‡ podawane jako czysty tekst, XML lub HTML.
 
-Aktualnie program obs³uguje DMI (tylko x86), drzewo urz±dzeñ
+Aktualnie program obsÅ‚uguje DMI (tylko x86), drzewo urzÄ…dzeÅ„
 OpenFirmware (tylko PowerPC), PCI/AGP, CPUID (x86), IDE/ATA/ATAPI,
 PCMCIA (testowane tylko na x86) oraz SCSI.
 
 %package gtk
 Summary:	GTK+ version of lshw
-Summary(pl):	lshw w wersji GTK+
+Summary(pl.UTF-8):   lshw w wersji GTK+
 Group:		Applications/System
 Requires:	lshw
 
 %description gtk
 GTK+ version of lshw.
 
-%description gtk -l pl
+%description gtk -l pl.UTF-8
 lshw w wersji GTK+.
 
 %prep
