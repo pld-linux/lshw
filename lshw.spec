@@ -3,7 +3,7 @@
 %bcond_without	gui	# build without GTK gui
 #
 Summary:	Hardware Lister
-Summary(pl.UTF-8):   Narzędzie wypisujące sprzęt
+Summary(pl.UTF-8):	Narzędzie wypisujące sprzęt
 Name:		lshw
 Version:	B.02.09
 Release:	1
@@ -48,7 +48,7 @@ PCMCIA (testowane tylko na x86) oraz SCSI.
 
 %package gtk
 Summary:	GTK+ version of lshw
-Summary(pl.UTF-8):   lshw w wersji GTK+
+Summary(pl.UTF-8):	lshw w wersji GTK+
 Group:		Applications/System
 Requires:	lshw
 
