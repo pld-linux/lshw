@@ -5,12 +5,12 @@
 Summary:	Hardware Lister
 Summary(pl.UTF-8):	Narzędzie wypisujące sprzęt
 Name:		lshw
-Version:	B.02.09
-Release:	2
+Version:	B.02.11
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://ezix.org/software/files/%{name}-%{version}.tar.gz
-# Source0-md5:	2a51cdb0b1a1e6420a1e386a4348d00f
+# Source0-md5:	e88d3a3bfef80f998a18d80fe99b36e2
 URL:		http://ezix.org/project/wiki/HardwareLiSter
 %{?with_gui:BuildRequires:	gtk+2-devel}
 BuildRequires:	libstdc++-devel
