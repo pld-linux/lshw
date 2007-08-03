@@ -11,8 +11,9 @@ License:	GPL v2
 Group:		Applications/System
 Source0:	http://ezix.org/software/files/%{name}-%{version}.tar.gz
 # Source0-md5:	e88d3a3bfef80f998a18d80fe99b36e2
+Patch0:		%{name}-make.patch
 URL:		http://ezix.org/project/wiki/HardwareLiSter
-%{?with_gui:BuildRequires:	gtk+2-devel}
+%{?with_gui:BuildRequires:	gtk+2-devel >= 1:2.0}
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 Requires:	pciutils
@@ -60,6 +61,7 @@ lshw w wersji GTK+.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} \
