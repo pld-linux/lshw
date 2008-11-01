@@ -6,11 +6,12 @@ Summary:	Hardware Lister
 Summary(pl.UTF-8):	Narzędzie wypisujące sprzęt
 Name:		lshw
 Version:	B.02.13
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://ezix.org/software/files/%{name}-%{version}.tar.gz
 # Source0-md5:	e94c728ed037ca706436b5ef71aa392d
+Patch0:		%{name}-gcc.patch
 URL:		http://ezix.org/project/wiki/HardwareLiSter
 %{?with_gui:BuildRequires:	gtk+2-devel >= 1:2.0}
 BuildRequires:	libstdc++-devel
@@ -60,6 +61,7 @@ lshw w wersji GTK+.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %{__make} \
