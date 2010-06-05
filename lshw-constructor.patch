@@ -1,0 +1,11 @@
+--- src/core/scsi.cc.orig	2009-02-12 23:53:09.000000000 +0100
++++ src/core/scsi.cc	2010-06-05 23:04:35.196166002 +0200
+@@ -842,7 +842,7 @@
+ 
+           if (!controller)
+           {
+-            controller = node.addChild(hwNode::hwNode("scsi", hw::storage));
++            controller = node.addChild(hwNode("scsi", hw::storage));
+             if (controller)
+             {
+               controller->setLogicalName(host_logicalname(number));
