@@ -5,14 +5,13 @@
 Summary:	Hardware Lister
 Summary(pl.UTF-8):	Narzędzie wypisujące sprzęt
 Name:		lshw
-Version:	B.02.14
-Release:	2
+Version:	B.02.15
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://ezix.org/software/files/%{name}-%{version}.tar.gz
-# Source0-md5:	8bed55768c5cb2ceff062b882a687e9b
+# Source0-md5:	970bd9eb05fa3ae139a24a417465c54c
 Patch0:		%{name}-gcc.patch
-Patch1:		%{name}-constructor.patch
 URL:		http://ezix.org/project/wiki/HardwareLiSter
 %{?with_gui:BuildRequires:	gtk+2-devel >= 1:2.0}
 BuildRequires:	libstdc++-devel
@@ -63,7 +62,6 @@ lshw w wersji GTK+.
 %prep
 %setup -q
 %patch0 -p0
-%patch1 -p0
 
 %build
 %{__make} \
@@ -88,10 +86,12 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man1}
 	DESTDIR=$RPM_BUILD_ROOT
 %endif
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc docs/TODO docs/Changelog docs/lshw.xsd README
 %attr(755,root,root) %{_sbindir}/%{name}
