@@ -51,7 +51,7 @@ PCMCIA (testowane tylko na x86) oraz SCSI.
 Summary:	GTK+ version of lshw
 Summary(pl.UTF-8):	lshw w wersji GTK+
 Group:		Applications/System
-Requires:	lshw
+Requires:	%{name} = %{version}-%{release}
 
 %description gtk
 GTK+ version of lshw.
@@ -96,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc docs/TODO docs/Changelog docs/lshw.xsd README
 %attr(755,root,root) %{_sbindir}/%{name}
 %{_datadir}/%{name}
-%{_mandir}/man1/*
+%{_mandir}/man1/lshw.1*
 
 %if %{with gui}
 %files gtk
