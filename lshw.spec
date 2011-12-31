@@ -1,12 +1,13 @@
 #
 # Conditional build:
 %bcond_without	gui	# build without GTK gui
+%bcond_without	sqlite	# build without sqlite support (saving hardware tree to sqlite db)
 #
 Summary:	Hardware Lister
 Summary(pl.UTF-8):	Narzędzie wypisujące sprzęt
 Name:		lshw
 Version:	B.02.15
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://ezix.org/software/files/%{name}-%{version}.tar.gz
@@ -16,6 +17,7 @@ URL:		http://ezix.org/project/wiki/HardwareLiSter
 %{?with_gui:BuildRequires:	gtk+2-devel >= 1:2.0}
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
+%{?with_sqlite:BuildRequires:	sqlite3-devel}
 Requires:	pciutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -64,14 +66,19 @@ lshw w wersji GTK+.
 %patch0 -p0
 
 %build
-%{__make} \
+%if %{with sqlite}
+export SQLITE=1
+%endif
+%{__make} -C src \
 	CXX="%{__cxx}" \
-	CXXFLAGS="%{rpmcflags} -I./core"
+	CXXFLAGS="%{rpmcflags} -I./core" \
+	%{?with_sqlite:SQLITE=1}
 
 %if %{with gui}
-%{__make} gui \
+%{__make} -C src gui \
 	CXX="%{__cxx}" \
-	CXXFLAGS="%{rpmcflags} -I../core `pkg-config --cflags gtk+-2.0`"
+	CXXFLAGS="%{rpmcflags} -I../core `pkg-config --cflags gtk+-2.0`" \
+	%{?with_sqlite:SQLITE=1}
 %endif
 
 %install
@@ -79,7 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man1}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	%{?with_sqlite:SQLITE=1}
 
 %if %{with gui}
 %{__make} install-gui \
