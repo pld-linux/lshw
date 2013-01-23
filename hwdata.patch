@@ -1,0 +1,22 @@
+--- lshw-B.02.16.orig/src/core/pci.cc
++++ lshw-B.02.16/src/core/pci.cc
+@@ -17,7 +17,7 @@ __ID("@(#) $Id: pci.cc 2433 2012-01-10 2
+ 
+ #define PROC_BUS_PCI "/proc/bus/pci"
+ #define SYS_BUS_PCI "/sys/bus/pci"
+-#define PCIID_PATH DATADIR"/pci.ids:/usr/share/lshw/pci.ids:/usr/local/share/pci.ids:/usr/share/pci.ids:/etc/pci.ids:/usr/share/hwdata/pci.ids:/usr/share/misc/pci.ids"
++#define PCIID_PATH "/lib/hwdata/pci.ids"
+ 
+ #define PCI_CLASS_REVISION      0x08              /* High 24 bits are class, low 8 revision */
+ #define PCI_VENDOR_ID           0x00    /* 16 bits */
+--- lshw-B.02.16.orig/src/core/usb.cc
++++ lshw-B.02.16/src/core/usb.cc
+@@ -27,7 +27,7 @@
+ 
+ #define PROCBUSUSBDEVICES "/proc/bus/usb/devices"
+ #define SYSBUSUSBDEVICES "/sys/bus/usb/devices"
+-#define USBID_PATH DATADIR"/usb.ids:/usr/share/lshw/usb.ids:/usr/local/share/usb.ids:/usr/share/usb.ids:/etc/usb.ids:/usr/share/hwdata/usb.ids:/usr/share/misc/usb.ids"
++#define USBID_PATH "/lib/hwdata/usb.ids"
+ 
+ #define USB_CLASS_PER_INTERFACE         0         /* for DeviceClass */
+ #define USB_CLASS_AUDIO                 1

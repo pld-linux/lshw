@@ -1,4 +1,6 @@
-#
+# TODO
+# - support compressed pci.ids.gz/usb.ids.gz
+
 # Conditional build:
 %bcond_without	gui	# build without GTK gui
 %bcond_without	sqlite	# build without sqlite support (saving hardware tree to sqlite db)
@@ -7,19 +9,20 @@ Summary:	Hardware Lister
 Summary(pl.UTF-8):	Narzędzie wypisujące sprzęt
 Name:		lshw
 Version:	B.02.16
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://ezix.org/software/files/%{name}-%{version}.tar.gz
 # Source0-md5:	67479167add605e8f001097c30e96d0d
 Patch0:		%{name}-gcc.patch
 Patch1:		sanity.patch
+Patch2:		hwdata.patch
 URL:		http://ezix.org/project/wiki/HardwareLiSter
 %{?with_gui:BuildRequires:	gtk+2-devel >= 1:2.0}
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 %{?with_sqlite:BuildRequires:	sqlite3-devel}
-Requires:	pciutils
+Requires:	hwdata >= 0.243-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -66,6 +69,7 @@ lshw w wersji GTK+.
 %setup -q
 %patch0 -p0
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__make} -C src \
