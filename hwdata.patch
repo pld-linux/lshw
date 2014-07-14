@@ -1,6 +1,7 @@
---- lshw-B.02.16.orig/src/core/pci.cc
-+++ lshw-B.02.16/src/core/pci.cc
-@@ -17,7 +17,7 @@ __ID("@(#) $Id: pci.cc 2433 2012-01-10 2
+diff -ur lshw-B.02.17.orig/src/core/pci.cc lshw-B.02.17/src/core/pci.cc
+--- lshw-B.02.17.orig/src/core/pci.cc	2012-05-15 08:00:13.000000000 +0000
++++ lshw-B.02.17/src/core/pci.cc	2014-07-14 20:35:43.539000000 +0000
+@@ -17,7 +17,7 @@
  
  #define PROC_BUS_PCI "/proc/bus/pci"
  #define SYS_BUS_PCI "/sys/bus/pci"
@@ -9,12 +10,13 @@
  
  #define PCI_CLASS_REVISION      0x08              /* High 24 bits are class, low 8 revision */
  #define PCI_VENDOR_ID           0x00    /* 16 bits */
---- lshw-B.02.16.orig/src/core/usb.cc
-+++ lshw-B.02.16/src/core/usb.cc
+diff -ur lshw-B.02.17.orig/src/core/usb.cc lshw-B.02.17/src/core/usb.cc
+--- lshw-B.02.17.orig/src/core/usb.cc	2012-10-24 16:49:18.000000000 +0000
++++ lshw-B.02.17/src/core/usb.cc	2014-07-14 20:36:22.940000000 +0000
 @@ -27,7 +27,7 @@
  
  #define PROCBUSUSBDEVICES "/proc/bus/usb/devices"
- #define SYSBUSUSBDEVICES "/sys/bus/usb/devices"
+ #define SYSKERNELDEBUGUSBDEVICES "/sys/kernel/debug/usb/devices"
 -#define USBID_PATH DATADIR"/usb.ids:/usr/share/lshw/usb.ids:/usr/local/share/usb.ids:/usr/share/usb.ids:/etc/usb.ids:/usr/share/hwdata/usb.ids:/usr/share/misc/usb.ids"
 +#define USBID_PATH "/lib/hwdata/usb.ids"
  
