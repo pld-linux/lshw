@@ -17,6 +17,7 @@ Source0:	http://ezix.org/software/files/%{name}-%{version}.tar.gz
 Patch0:		%{name}-gcc.patch
 Patch1:		sanity.patch
 Patch2:		hwdata.patch
+Patch3:		%{name}-buffer_overflow.patch
 URL:		http://ezix.org/project/wiki/HardwareLiSter
 %{?with_gui:BuildRequires:	gtk+2-devel >= 1:2.0}
 BuildRequires:	libstdc++-devel
@@ -70,6 +71,7 @@ lshw w wersji GTK+.
 %patch0 -p0
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__make} -C src \
