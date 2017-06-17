@@ -1,5 +1,6 @@
---- lshw-B.02.16.orig/src/core/Makefile
-+++ lshw-B.02.16/src/core/Makefile
+diff -ruNp lshw-B.02.18.orig/src/core/Makefile lshw-B.02.18/src/core/Makefile
+--- lshw-B.02.18.orig/src/core/Makefile	2016-04-22 21:49:30.000000000 +0200
++++ lshw-B.02.18/src/core/Makefile	2017-06-17 21:34:48.388265696 +0200
 @@ -1,10 +1,9 @@
  PACKAGENAME?=lshw
  
@@ -13,8 +14,9 @@
  LDSTATIC=
  LIBS=
  
---- lshw-B.02.16.orig/src/gui/Makefile
-+++ lshw-B.02.16/src/gui/Makefile
+diff -ruNp lshw-B.02.18.orig/src/gui/Makefile lshw-B.02.18/src/gui/Makefile
+--- lshw-B.02.18.orig/src/gui/Makefile	2016-04-22 21:49:30.000000000 +0200
++++ lshw-B.02.18/src/gui/Makefile	2017-06-17 21:37:34.254783020 +0200
 @@ -1,5 +1,7 @@
  PACKAGENAME?=lshw
  
@@ -31,11 +33,10 @@
 +CXXFLAGS += -Wall $(INCLUDES) $(DEFINES) $(RPM_OPT_FLAGS)
  CFLAGS=$(CXXFLAGS) $(DEFINES)
  GTKLIBS=$(shell pkg-config gtk+-2.0 gmodule-2.0 --libs)
--LIBS=-L../core -llshw -lresolv -lsqlite3 $(GTKLIBS)
+ LIBS=-L../core -llshw -lresolv $(GTKLIBS)
 -LDFLAGS=
 -ifneq ($(shell $(LD) --help 2| grep -- --as-needed), )
 -	LDFLAGS+= -Wl,--as-needed
-+LIBS=-L../core -llshw -lresolv $(GTKLIBS)
 +
 +ifeq ($(SQLITE), 1)
 +	CXXFLAGS+= -DSQLITE $(shell pkg-config --cflags sqlite3)
@@ -53,8 +54,9 @@
  clean:
  	rm -f $(OBJS) gtk-$(PACKAGENAME) gtk-lshw.glade.bak gtk-lshw.gladep.bak callbacks.c.bak callbacks.h.bak Makefile.bak
  
---- lshw-B.02.16.orig/src/Makefile
-+++ lshw-B.02.16/src/Makefile
+diff -ruNp lshw-B.02.18.orig/src/Makefile lshw-B.02.18/src/Makefile
+--- lshw-B.02.18.orig/src/Makefile	2016-04-22 21:49:30.000000000 +0200
++++ lshw-B.02.18/src/Makefile	2017-06-17 21:34:48.390265690 +0200
 @@ -21,11 +21,11 @@ export SQLITE
  CXX?=c++
  INCLUDES=-I./core/
@@ -135,5 +137,5 @@
 +	$(MAKE) -C core clean
 +	$(MAKE) -C gui clean
  
- .timestamp:
- 	date --utc +%Y%m%d%H%M%S > $@
+ depend:
+ 	@makedepend -Y $(SRCS) 2> /dev/null > /dev/null

@@ -8,16 +8,15 @@
 Summary:	Hardware Lister
 Summary(pl.UTF-8):	Narzędzie wypisujące sprzęt
 Name:		lshw
-Version:	B.02.17
-Release:	2
+Version:	B.02.18
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://ezix.org/software/files/%{name}-%{version}.tar.gz
-# Source0-md5:	a5feb796cb302850eaf5b4530888e3ed
-Patch0:		%{name}-gcc.patch
-Patch1:		sanity.patch
-Patch2:		hwdata.patch
-Patch3:		%{name}-buffer_overflow.patch
+# Source0-md5:	8671c6d94d6324a744b7f21f1bfecfd2
+Patch0:		sanity.patch
+Patch1:		hwdata.patch
+Patch2:		%{name}-buffer_overflow.patch
 URL:		http://ezix.org/project/wiki/HardwareLiSter
 %{?with_gui:BuildRequires:	gtk+2-devel >= 1:2.0}
 BuildRequires:	libstdc++-devel
@@ -68,10 +67,9 @@ lshw w wersji GTK+.
 
 %prep
 %setup -q
-%patch0 -p0
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 %{__make} -C src \
@@ -108,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc docs/TODO docs/Changelog docs/lshw.xsd README
+%doc docs/TODO docs/Changelog docs/lshw.xsd README.md
 %attr(755,root,root) %{_sbindir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man1/lshw.1*
