@@ -66,7 +66,11 @@ GTK+ version of lshw.
 lshw w wersji GTK+.
 
 %prep
-%setup -q
+# tarball contains lshw.spec outside package subdirectory, skip it to avoid leaving junk
+# TODO: use plain setup -q when junk is no longer present
+%setup -q -c -T
+%{__tar} xzf %{SOURCE0} --exclude=lshw.spec -C ..
+
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
