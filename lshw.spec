@@ -8,16 +8,16 @@
 Summary:	Hardware Lister
 Summary(pl.UTF-8):	Narzędzie wypisujące sprzęt
 Name:		lshw
-Version:	B.02.18
+Version:	B.02.19.2
 Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://ezix.org/software/files/%{name}-%{version}.tar.gz
-# Source0-md5:	8671c6d94d6324a744b7f21f1bfecfd2
+Source0:	https://ezix.org/software/files/%{name}-%{version}.tar.gz
+# Source0-md5:	8c70d46e906688309095c73ecb9396e3
 Patch0:		sanity.patch
 Patch1:		hwdata.patch
 Patch2:		%{name}-buffer_overflow.patch
-URL:		http://ezix.org/project/wiki/HardwareLiSter
+URL:		https://ezix.org/project/wiki/HardwareLiSter
 %{?with_gui:BuildRequires:	gtk+2-devel >= 1:2.0}
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
@@ -66,10 +66,7 @@ GTK+ version of lshw.
 lshw w wersji GTK+.
 
 %prep
-# tarball contains lshw.spec outside package subdirectory, skip it to avoid leaving junk
-# TODO: use plain setup -q when junk is no longer present
-%setup -q -c -T
-%{__tar} xzf %{SOURCE0} --exclude=lshw.spec -C ..
+%setup -q
 
 %patch0 -p1
 %patch1 -p1

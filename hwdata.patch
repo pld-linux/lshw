@@ -9,7 +9,7 @@ diff -ur lshw-B.02.17.orig/src/core/pci.cc lshw-B.02.17/src/core/pci.cc
 +#define PCIID_PATH "/lib/hwdata/pci.ids"
  
  #define PCI_CLASS_REVISION      0x08              /* High 24 bits are class, low 8 revision */
- #define PCI_VENDOR_ID           0x00    /* 16 bits */
+ #define PCI_VENDOR_ID           0x00              /* 16 bits */
 diff -ur lshw-B.02.17.orig/src/core/usb.cc lshw-B.02.17/src/core/usb.cc
 --- lshw-B.02.17.orig/src/core/usb.cc	2012-10-24 16:49:18.000000000 +0000
 +++ lshw-B.02.17/src/core/usb.cc	2014-07-14 20:36:22.940000000 +0000
