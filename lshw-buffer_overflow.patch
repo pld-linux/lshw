@@ -15,5 +15,5 @@ diff -ruN lshw-B.02.17.orig/src/core/fat.cc lshw-B.02.17/src/core/fat.cc
  			uint8_t pmagic[2];
 +			uint8_t dummy3[256];
  		} __attribute__((__packed__)) fat32;
+ 		char sector[512];	// to make sure the whole struct is at least 512 bytes long
  	} __attribute__((__packed__)) type;
- } __attribute__((__packed__));
